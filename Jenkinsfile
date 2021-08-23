@@ -8,7 +8,8 @@ pipeline {
             }
          }
           
-         stage('Build Docker') {     
+         stage('Build Docker') {  
+             agengt docker
              steps {
                sh 'docker build -t firstone .'
              }
