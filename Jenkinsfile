@@ -8,7 +8,7 @@ pipeline {
             }
          }
           
-         stage('Build Docker') { 
+          stage('Build Docker') { 
              agent { dockerfile true }
                  // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
                  //dockerfile {
