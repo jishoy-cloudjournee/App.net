@@ -15,8 +15,7 @@ pipeline {
                   //          filename 'Dockerfile'
                  //           label 'my-defined-label'
                  //           args '-t testone'
-                 // }
-            }      
+                 // }     
          }        
     }
 }
