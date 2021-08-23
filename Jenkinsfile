@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     stages {
          stage('Git clone') {
             steps {
@@ -8,8 +8,7 @@ pipeline {
             }
          }
           
-         stage('Build Docker') {  
-             agent docker
+         stage('Build Docker') { 
              steps {
                sh 'docker build -t firstone .'
              }
