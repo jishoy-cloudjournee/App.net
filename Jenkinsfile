@@ -10,7 +10,7 @@ pipeline {
           
          stage('Build Docker') { 
              steps {
-               sh 'docker build -t firstone .'
+               sh 'docker build -t firstone . -v $(which docker):/usr/bin/docker'
              }
          }        
     }
