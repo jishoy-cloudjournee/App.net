@@ -1,7 +1,5 @@
 pipeline {
-    agent any
-    environment {
-          dockerImage = ''
+    agent none
     }
     
     stages {
@@ -13,11 +11,14 @@ pipeline {
          }
           
          stage('Build Docker') { 
-             steps {
-              script {
-                   dockerImage = docker.build registry
-              }
-             }
+            agent {
+                 // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
+                 dockerfile {
+                            filename 'Dockerfile'
+                            label 'my-defined-label'
+                            args '-t testone'
+                  }
+            }      
          }        
     }
 }
