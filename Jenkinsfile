@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+          dockerImage = ''
+    }
+    
     stages {
          stage('Git clone') {
             steps {
@@ -10,7 +14,9 @@ pipeline {
           
          stage('Build Docker') { 
              steps {
-               sh 'docker build -t firstone . -v $(which docker):/usr/bin/docker'
+              script {
+                   dockerImage = docker.build registry
+              }
              }
          }        
     }
