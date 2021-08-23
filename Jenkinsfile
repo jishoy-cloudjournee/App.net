@@ -9,7 +9,7 @@ pipeline {
          }
           
          stage('Build Docker') {  
-             agengt docker
+             agent docker
              steps {
                sh 'docker build -t firstone .'
              }
