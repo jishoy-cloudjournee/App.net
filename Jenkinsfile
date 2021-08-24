@@ -1,5 +1,5 @@
 pipeline {
-    agent none
+    agent any
     stages{
          stage('Git clone') {
             agent any
@@ -9,8 +9,10 @@ pipeline {
             }
          }
           
-          stage('Build Docker') { 
-             agent { dockerfile true }     
+         stage('Build Docker') { 
+             agent{ 
+                 docker { image 'docker:dind'}
+                }     
               steps
               {
                 echo "hello"
