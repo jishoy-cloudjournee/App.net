@@ -29,7 +29,7 @@ pipeline {
          }   
          stage('Push') {
            steps {
-             sh  'docker push jishoy96/aspent:latest'
+             sh  'docker push jishoy96/aspent'
       }
     }
   }
