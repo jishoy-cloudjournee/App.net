@@ -23,7 +23,7 @@ pipeline {
           }
           stage('push docker'){
             steps{
-              sh 'echo $dockerhub_cred_PSW | docker login -u $dockerhub_cred_USR --password-stdin'
+              sh 'echo $dockerhub_cred_PSW | docker login -u $dockerhub_cred_USR -p $dockerhub_cred_PSWD'
               sh  'docker push aspent'
             }
 
