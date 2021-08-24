@@ -9,12 +9,10 @@ pipeline {
          }
           
           stage('Build Docker') { 
-             agent { 
-                 docker { image 'docker:latest'}
-              }     
+             agent { dockerfile true }     
               steps
               {
-                sh 'docker build -t aspent .'
+                echo "hello"
               }
           }        
     }
