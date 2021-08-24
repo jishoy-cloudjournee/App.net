@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    environment {
+      dockerhub_cred = credentials('dockerhub')
+
+    }
     stages{
          stage('Git clone') {
             steps {
@@ -16,6 +20,12 @@ pipeline {
               {
                 sh 'docker build -t aspent .'
               }
+          }
+          stage('push docker'){
+            steps{
+              sh 'echo $dockerhub_cred_psw | docker login -u  $dockerhub_cred_usr --password-stdin'
+            }
+
           }        
     }
 }
