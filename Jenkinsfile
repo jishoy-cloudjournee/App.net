@@ -24,7 +24,7 @@ pipeline {
           stage('push docker'){
             steps{
               sh 'echo $dockerhub_cred_PSW | docker login -u $dockerhub_cred_USR --password-stdin'
-              sh  'docker push aspnet'
+              sh  'docker push aspent'
             }
 
           }        
