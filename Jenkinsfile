@@ -25,8 +25,8 @@ pipeline {
             steps{
               withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUser')]) 
               {
-                 sh "docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}"
-                 sh 'docker push aspent
+                 sh 'docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}'
+                 sh 'docker push aspent'
               }   
             }
 
