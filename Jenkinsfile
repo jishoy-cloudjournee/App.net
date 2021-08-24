@@ -23,8 +23,9 @@ pipeline {
           }
           stage('push docker'){
             steps{
-              sh 'echo $dockerhub_cred_PSW | docker login -u $dockerhub_cred_USR --password-stdin'
-              sh  'docker push jishoy96/aspent'
+              withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerhubPassword', usernameVariable: 'dockerhubUser')]) {
+                 sh  'docker login -u ${env.dockerhubUser} -p ${env.dockerhubPassword}'
+                 sh  'docker push jishoy96/aspent'
             }
          }         
   }
