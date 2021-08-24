@@ -13,9 +13,9 @@ pipeline {
          }
           
           stage('Build Docker') { 
-             agent { 
-                 docker { image 'docker:dind'}
-              }     
+           //  agent { 
+           //      docker { image 'docker:dind'}
+           //   }     
               steps
               {
                 sh 'docker build -t aspent .'
