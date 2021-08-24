@@ -9,16 +9,13 @@ pipeline {
          }
           
           stage('Build Docker') { 
-             agent { dockerfile true }
-                 // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
-                 //dockerfile {
-                  //          filename 'Dockerfile'
-                 //           label 'my-defined-label'
-                 //           args '-t testone'
-                // }     
-              steps{
-                  echo 'hello world'
+             agent { 
+                 docker { image 'dind'}
+              }     
+              steps
+              {
+                sh 'docker build -t aspent .'
               }
-         }        
+          }        
     }
 }
