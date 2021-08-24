@@ -18,7 +18,7 @@ pipeline {
            //   }     
               steps
               {
-                sh 'docker build -t aspent .'
+                sh 'docker build -t jishoy96/aspent .'
               }
           }
           stage('push docker'){
