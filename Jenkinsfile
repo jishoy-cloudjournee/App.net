@@ -37,8 +37,8 @@ pipeline {
 	 		 sh '''#!/bin/bash
 				date
 				ssh -o StrictHostKeyChecking=no ubuntu@3.143.116.249 
-			        date
-			    	cd /tmp
+			        sudo -i -u root
+			    	cd test
 			    	pwd
                             ''' 
                    }
