@@ -30,7 +30,7 @@ pipeline {
          stage('Deploy'){
             steps{
                sshagent(['deploy']) {
-                   sh 'ssh  -t -o StrictHostKeyChecking=no ubuntu@3.143.116.249  "sudo -i -u root  "'
+                   sh 'ssh  -tt -o StrictHostKeyChecking=no ubuntu@3.143.116.249  "sudo -i -u root  "'
                }
             }
          }  
