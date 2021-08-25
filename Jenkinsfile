@@ -31,8 +31,8 @@ pipeline {
             steps{
                sshagent(['deploy']) {
                    //sh 'sudo -i'
-                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.117.173.152'
-                   sh 'cd test/'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.117.173.152 "echo pwd && sudo -i -u root "'
+                   
                 }
             }
          }
