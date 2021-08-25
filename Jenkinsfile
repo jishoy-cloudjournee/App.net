@@ -31,17 +31,16 @@ pipeline {
             steps{
                sshagent(['deploy']) {
                    script {
-			            echo 'Using remote command over ssh'
-			            sh 'echo "Today is:" date'
-			            echo '*** Executing remote commands ***'
-	 		            sh '''#!/bin/bash
-				                 date
-				                ssh -o StrictHostKeyChecking=no ubuntu@3.143.116.249 >> ENDSSH
-			        	        date
-			    	            cd /tmp
-			    	            pwd
-ENDSSH
-'''
+		    	 echo 'Using remote command over ssh'
+		    	 sh 'echo "Today is:" date'
+			 echo '*** Executing remote commands ***'
+	 		 sh '''#!/bin/bash
+				date
+				ssh -o StrictHostKeyChecking=no ubuntu@3.143.116.249 
+			        date
+			    	cd /tmp
+			    	pwd
+                            ''' 
                    }
                 }
             }
