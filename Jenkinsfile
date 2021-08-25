@@ -30,19 +30,8 @@ pipeline {
          stage('Deploy'){
             steps{
                sshagent(['deploy']) {
-                   script {
-		    	 echo 'Using remote command over ssh'
-		    	 sh 'echo "Today is:" date'
-			 echo '*** Executing remote commands ***'
-	 		 sh '''#!/bin/bash
-				date
-				ssh -o StrictHostKeyChecking=no ubuntu@3.143.116.249 
-			        sudo -i -u root
-			    	cd test
-			    	pwd
-                            ''' 
-                   }
-                }
+                   sh 'ssh  -t -o StrictHostKeyChecking=no ubuntu@3.143.116.249  "sudo -i -u root  "'
+               }
             }
          }  
    }
