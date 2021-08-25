@@ -31,7 +31,7 @@ pipeline {
             steps{
                sshagent(['deploy']) {
                    //sh 'sudo -i'
-                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@ec2-18-117-173-152.us-east-2.compute.amazonaws.com'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@18.117.173.152'
                 }
             }
          }
