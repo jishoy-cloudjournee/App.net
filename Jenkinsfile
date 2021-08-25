@@ -33,6 +33,11 @@ pipeline {
                    sh 'ssh -o StrictHostKeyChecking=no ubuntu@3.143.116.249  "sudo docker ps && sudo fuser -k 5000/tcp  && sudo docker run -d -p 5000:5000 jishoy96/aspent && sudo docker ps "'
                }
             }
-       }
+          }
+      }    
+         post {
+              always {
+                cleanWs()
+             }
+         }   
     }
-}
