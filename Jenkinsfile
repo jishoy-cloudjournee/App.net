@@ -30,7 +30,7 @@ pipeline {
          stage('Deploy'){
             steps{
                sshagent(['deploy']) {
-                   sh 'sudo -i'
+                   //sh 'sudo -i'
                    sh 'ls'
                 }
             }
