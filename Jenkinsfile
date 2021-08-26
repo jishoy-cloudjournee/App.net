@@ -30,7 +30,7 @@ pipeline {
           stage('Deploy'){
              steps{
                sshagent(['deploy']) {
-                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.245.155.207  "sudo docker ps"'
+                   sh 'ssh -o StrictHostKeyChecking=no ubuntu@54.245.155.207  "sudo docker ps && /home/ubuntu/hel.sh && echo $? "'
                }
             }
          }
