@@ -30,7 +30,9 @@ pipeline {
          stage('Deploy'){
             steps{
                sshagent(['deploy']) {
-                   sh '''ssh -o StrictHostKeyChecking=no ubuntu@54.245.155.207 "sudo docker ps && sudo docker ps -a | awk '{ print \$1,\$2 }' | grep jishoy | awk '{ print \$1 }' | xargs -I {}  docker rm -f {} && sudo docker run -d -p 5000:5000 jishoy96/aspent && sudo docker ps "'''
+                   sh """#!/bin/bash 
+                        ssh -o StrictHostKeyChecking=no ubuntu@54.245.155.207 "sudo docker ps  && sudo docker run -d -p 5000:5000 jishoy96/aspent && sudo docker ps"
+                      """ 
                }
             }
          }
